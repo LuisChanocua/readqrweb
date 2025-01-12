@@ -62,17 +62,20 @@ const activarSonido = () => {
 qrcode.callback = (respuesta) => {
   if (respuesta) {
     //console.log(respuesta);
-    Swal.fire(respuesta)
+    // Swal.fire(respuesta)
+    Swal.fire({
+      icon: "info",
+      title: "<h4>Data obtenida: </h4>",
+      html: respuesta.includes('http') ?  `<a href="${respuesta}" target="_blank" style="color: blue; text-decoration: underline;">
+      ${respuesta} </a>` : `${respuesta}`   
+     });
+
     activarSonido();
     //encenderCamara();    
     cerrarCamara();    
 
   }
 };
-//evento para mostrar la camara sin el boton 
-window.addEventListener('load', (e) => {
-  // encenderCamara();
-})
 
 document.addEventListener("DOMContentLoaded", () => {
   let year_footer = document.getElementById('year-footer');
