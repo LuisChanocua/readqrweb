@@ -71,10 +71,13 @@ qrcode.callback = (respuesta) => {
 };
 //evento para mostrar la camara sin el boton 
 window.addEventListener('load', (e) => {
-  encenderCamara();
+  // encenderCamara();
 })
 
-
+document.addEventListener("DOMContentLoaded", () => {
+  let year_footer = document.getElementById('year-footer');
+  year_footer.innerText = new Date().getFullYear();
+});
 
 
 
